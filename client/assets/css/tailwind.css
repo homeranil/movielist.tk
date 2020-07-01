@@ -1,0 +1,17 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+
+@import 'tailwindcss/utilities';
+
+html, body {
+  direction: rtl;
+}
+
+body {
+  @apply font-sans bg-gray-900 text-white;
+}
+
+.spinner {
+  position: absolute;
+}

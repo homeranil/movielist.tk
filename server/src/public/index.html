@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FeatherChat</title>
+    <meta name="description" content="FeatherChat">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+        font-weight: 400;
+        font-size: 16px;
+        background: #36051f;
+        color: rgb(59, 175, 211);
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      img.logo {
+        display: block;
+        margin: 0 auto;
+        height: 150px;
+        width: auto;
+      }
+
+      h1 {
+        font-weight: 300;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1 id="info" style="margin-top: 2rem; width:100%; text-align:center;">Logging you in...</h1>
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('access_token');
+        console.log(token);
+        if(window.opener && token) {
+          // TODO: dynamiclly set
+          window.opener.postMessage({ token }, 'https://watchlist.tk');
+          window.opener.postMessage({ token }, 'http://localhost:3000');
+          window.close();
+        }else{
+          info.textContent = 'Go Home.'
+        }
+
+      </script>
+    </main>
+  </body>
+</html>
